@@ -1,8 +1,23 @@
 import "./style.css";
+import { useState } from "react";
 
 const CharCard = ({ char }) => {
+  const [status, setStatus] = useState("Alive");
+
+  const statusPerson = (test) => {
+    if (test === "Dead") {
+      return "card dead";
+    }
+
+    if (test === "Alive") {
+      return "card alive";
+    }
+
+    return "card unknown";
+  };
+
   return (
-    <div className="card">
+    <div className={statusPerson(char.status)}>
       <img src={char.image} alt={char.image}></img>
       <label>Name: {char.name}</label>
       <label>Status: {char.status}</label>
