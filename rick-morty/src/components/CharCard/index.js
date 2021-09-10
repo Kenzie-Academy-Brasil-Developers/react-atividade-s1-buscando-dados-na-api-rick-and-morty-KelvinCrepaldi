@@ -16,10 +16,17 @@ const CharCard = ({ char }) => {
     return "card unknown";
   };
 
+  const formatName = (name) => {
+    if (name.length > 15) {
+      return name.slice(0, 15) + "...";
+    }
+    return name;
+  };
+
   return (
     <div className={statusPerson(char.status)}>
       <img src={char.image} alt={char.image}></img>
-      <label>Name: {char.name}</label>
+      <label>Name: {formatName(char.name)}</label>
       <label>Status: {char.status}</label>
       <label>Species: {char.species}</label>
       <label>Gender:{char.gender}</label>
